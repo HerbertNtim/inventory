@@ -34,7 +34,7 @@ const PurchaseSummaryCard = () => {
           {/* BODY */}
           <div>
             {/* BODY HEADER */}
-            <div className="mb-4 mt-7 px-7">
+            <div className="mb-4 mt-4 px-7">
               <p className="text-xs text-gray-400">Purchased</p>
               <div className="flex items-center">
                 <p className="text-2xl font-bold">
@@ -64,7 +64,7 @@ const PurchaseSummaryCard = () => {
             <ResponsiveContainer width="100%" height={200} className="p-2">
               <AreaChart
                 data={purchaseData}
-                margin={{ top: 0, right: 0, left: -50, bottom: 65 }}
+                margin={{ top: 0, right: 0, left: -50, bottom: 50 }}
               >
                 <XAxis dataKey="date" tick={false} axisLine={false} />
                 <YAxis tickLine={false} tick={false} axisLine={false} />
