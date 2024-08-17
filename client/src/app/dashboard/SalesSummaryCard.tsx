@@ -86,7 +86,7 @@ const SalesSummaryCard = () => {
               </select>
             </div>
             {/* CHART */}
-            <ResponsiveContainer width="100%" height='72%' className="px-7">
+            <ResponsiveContainer width="100%" height='73%' className="px-7">
               <BarChart
                 data={salesData}
                 margin={{ top: 0, right: 0, left: -25, bottom: 0 }}
@@ -133,7 +133,7 @@ const SalesSummaryCard = () => {
           {/* FOOTER */}
           <div>
             <hr />
-            <div className="flex justify-between items-center mt-6 text-sm px-7 mb-4">
+            <div className="flex justify-between items-center mt-4 text-sm px-7 mb-4">
               <p>{salesData.length || 0} days</p>
               <p className="text-sm">
                 Highest Sales Date:{" "}
