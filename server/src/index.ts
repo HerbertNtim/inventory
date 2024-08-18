@@ -5,6 +5,7 @@ import helmet from 'helmet'
 import morgan from 'morgan'
 import dashboardRouter from './routes/dashboardRoutes'
 import productsRouter from './routes/productsRoutes'
+import usersRouter from './routes/usersRoutes'
 // ROUTES IMPORTS
 
 // CONFIGURATIONS 
@@ -20,6 +21,7 @@ app.use(cors())
 // ROUTES
 app.use('/dashboard', dashboardRouter)
 app.use('/products', productsRouter)
+app.use('/users', usersRouter)
 
 // SERVER
 const PORT = process.env.PORT || 5000

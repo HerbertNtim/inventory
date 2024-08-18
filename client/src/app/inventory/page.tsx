@@ -38,7 +38,7 @@ const Inventory = () => {
 
   if (isError || !products) {
     return (
-      <div className="text-center text-red-500">Failed to fetch products</div>
+      <div className="text-center text-red-500">Failed to fetch products for inventory</div>
     );
   }
 

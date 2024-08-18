@@ -10,6 +10,7 @@ const helmet_1 = __importDefault(require("helmet"));
 const morgan_1 = __importDefault(require("morgan"));
 const dashboardRoutes_1 = __importDefault(require("./routes/dashboardRoutes"));
 const productsRoutes_1 = __importDefault(require("./routes/productsRoutes"));
+const usersRoutes_1 = __importDefault(require("./routes/usersRoutes"));
 // ROUTES IMPORTS
 // CONFIGURATIONS 
 const app = (0, express_1.default)();
@@ -23,6 +24,7 @@ app.use((0, cors_1.default)());
 // ROUTES
 app.use('/dashboard', dashboardRoutes_1.default);
 app.use('/products', productsRoutes_1.default);
+app.use('/users', usersRoutes_1.default);
 // SERVER
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

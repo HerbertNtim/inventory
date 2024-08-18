@@ -55,7 +55,7 @@ const StatCard = ({
                 <span className="font-bold text-gray-800">{detail.amount}</span>
                 <div className="flex items-center">
                   <detail.IconComponent
-                    className={`w-4 h-4 mr-1 ${getChangeColor(
+                    className={`w-4 h-4 mr-1 ml-1 ${getChangeColor(
                       detail.changePercentage
                     )}`}
                   />
@@ -68,9 +68,8 @@ const StatCard = ({
                     {formattedPercentage(detail.changePercentage)}
                   </span>
                 </div>
-
-                {index < details.length - 1 && <hr />}
               </div>
+              {index < details.length - 1 && <hr />}
             </React.Fragment>
           ))}
         </div>
