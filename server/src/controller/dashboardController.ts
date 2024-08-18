@@ -56,7 +56,6 @@ export const getDashboardMetrics = async (
       expenseByCategorySummary
     })
   } catch (error: any) {
-    console.log("Error in dashboard controller", error.message);
     res.status(500).json({ message: "Error in fetching dashboard metric" });
   }
 };

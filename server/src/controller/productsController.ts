@@ -16,7 +16,6 @@ export const getProducts = async (req: Request, res: Response): Promise<void> =>
 
     res.json(product);
   } catch (error: any) {
-    console.log('Error in getProducts controller', error.message);
     res.status(500).json({ message: 'Error in fetching products' });
   }
 }
@@ -36,7 +35,6 @@ export const createProduct = async (req: Request, res: Response): Promise<void> 
 
     res.status(201).json(product);
   } catch (error: any) {
-    console.log('Error in createProduct controller', error.message);
     res.status(500).json({ message: 'Error in creating product' });
   }
 }

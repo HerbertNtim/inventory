@@ -26,7 +26,6 @@ const getProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         res.json(product);
     }
     catch (error) {
-        console.log('Error in getProducts controller', error.message);
         res.status(500).json({ message: 'Error in fetching products' });
     }
 });
@@ -46,7 +45,6 @@ const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.status(201).json(product);
     }
     catch (error) {
-        console.log('Error in createProduct controller', error.message);
         res.status(500).json({ message: 'Error in creating product' });
     }
 });

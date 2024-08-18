@@ -54,7 +54,6 @@ const getDashboardMetrics = (req, res) => __awaiter(void 0, void 0, void 0, func
         });
     }
     catch (error) {
-        console.log("Error in dashboard controller", error.message);
         res.status(500).json({ message: "Error in fetching dashboard metric" });
     }
 });

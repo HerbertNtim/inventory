@@ -7,6 +7,13 @@ export interface Products {
   rating?: number;
   stockQuantity: number;
 }
+
+export interface NewProduct {
+  name: string;
+  price: number;
+  rating?: number;
+  stockQuantity: number;
+}
 export interface SalesSummary {
   salesSummaryId: string;
   totalValue: number;
@@ -44,13 +51,28 @@ export interface DashboardMetrics {
 export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL }),
   reducerPath: "api",
-  tagTypes: ["DashboardMetrics"],
+  tagTypes: ["DashboardMetrics", "Products"],
   endpoints: (build) => ({
     getDashboardMetrics: build.query<DashboardMetrics, void>({
       query: () => "/dashboard",
       providesTags: ["DashboardMetrics"],
     }),
+    getProducts: build.query<Products[], string | void>({
+      query: (search) => ({
+        url: "/products",
+        params: search ? { search } : {},
+      }),
+      providesTags: ["Products"],
+    }),
+    createProduct: build.mutation<Products, NewProduct>({
+      query: (newProduct) => ({
+        url: "/products",
+        method: "POST",
+        body: newProduct,
+      }),
+      invalidatesTags: ["Products"],
+    }),
   }),
 });
 
-export const { useGetDashboardMetricsQuery } = api;
+export const { useGetDashboardMetricsQuery, useGetProductsQuery, useCreateProductMutation } = api;
