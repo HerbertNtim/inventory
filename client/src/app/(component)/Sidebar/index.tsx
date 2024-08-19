@@ -66,7 +66,7 @@ const Sidebar = () => {
       {/* TOP LOGO */}
       <div className={`flex justify-between md:justify-normal items-center gap-3 pt-8 ${isSidebarCollapsed ? "px-5" : "px-8"}`}>
         <div className="">Logo</div>
-        <h1 className={`${isSidebarCollapsed ? "hidden" : "block"} font-extrabold text-2xl`}>MRMAN</h1>
+        <h1 className={`${isSidebarCollapsed ? "hidden" : "block"} font-extrabold text-2xl`}>HNTIM</h1>
         <button className="md:hidden bg-gray-100 rounded-full px-3 py-3 hover:bg-blue-100" onClick={toggleSidebar}>
           <Menu size={20} />
         </button>

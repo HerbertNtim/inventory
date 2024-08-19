@@ -60,7 +60,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <Link href={'/setting'}>
+        <Link href={'/settings'}>
           <Settings className='text-gray-500' size={24} />
         </Link>
       </div>

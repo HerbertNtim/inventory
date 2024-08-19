@@ -3,10 +3,12 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import helmet from 'helmet'
 import morgan from 'morgan'
+
+// ROUTES IMPORTS
 import dashboardRouter from './routes/dashboardRoutes'
 import productsRouter from './routes/productsRoutes'
 import usersRouter from './routes/usersRoutes'
-// ROUTES IMPORTS
+import expenseRouter from './routes/expenseRoutes'
 
 // CONFIGURATIONS 
 const app = express()
@@ -22,6 +24,7 @@ app.use(cors())
 app.use('/dashboard', dashboardRouter)
 app.use('/products', productsRouter)
 app.use('/users', usersRouter)
+app.use('/expenses', expenseRouter)
 
 // SERVER
 const PORT = process.env.PORT || 5000
