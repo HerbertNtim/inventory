@@ -2,6 +2,7 @@ import { useGetDashboardMetricsQuery } from "@/state/api";
 import React from "react";
 import Rating from "../(component)/Rating";
 import { ShoppingBag } from "lucide-react";
+import Image from "next/image";
 
 const PopularProductsCard = () => {
   const { data: dashboardMetrics, isLoading } = useGetDashboardMetricsQuery();
@@ -19,13 +20,28 @@ const PopularProductsCard = () => {
 
           <div className="overflow-auto h-full">
             {dashboardMetrics?.popularProducts.map((product) => (
-              <div key={product.productId} className="flex justify-between items-center gap-3 px-5 py-7 border-b">
+              <div
+                key={product.productId}
+                className="flex justify-between items-center gap-3 px-5 py-7 border-b"
+              >
                 <div className="flex justify-between items-center gap-4">
-                  <div>img</div>
+                  <Image
+                    src={`https://s3-inventory-2024.s3.amazonaws.com/product${
+                      Math.floor(Math.random() * 3) + 1
+                    }.png`}
+                    alt={product.name}
+                    width={48}
+                    height={48}
+                    className="w-14 h-14 rounded-lg "
+                  />
                   <div className="flex flex-col justify-between gap-1">
-                    <h6 className="font-semibold text-gray-700">{product.name}</h6>
+                    <h6 className="font-semibold text-gray-700">
+                      {product.name}
+                    </h6>
                     <div className="flex text-sm items-center">
-                      <p className="font-semibold text-blue-500 text-xs">${product.price}</p>
+                      <p className="font-semibold text-blue-500 text-xs">
+                        ${product.price}
+                      </p>
                       <span className="mx-2">|</span>
                       <Rating rating={product.rating || 0} />
                     </div>

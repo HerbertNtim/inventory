@@ -7,13 +7,14 @@ import Header from "@/app/(component)/Header";
 import Rating from "@/app/(component)/Rating";
 import CreateProductModal from "./CreateProductModal";
 import numeral from "numeral";
+import Image from "next/image";
 
 type ProductFormData = {
   name: string;
   rating: number;
   stockQuantity: number;
   price: number;
-}
+};
 
 const Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -22,8 +23,8 @@ const Products = () => {
   const { data: products, isError, isLoading } = useGetProductsQuery();
   const [createProduct] = useCreateProductMutation();
   const handleCreateProduct = async (productData: ProductFormData) => {
-    await createProduct(productData)
-  }
+    await createProduct(productData);
+  };
 
   if (isLoading) {
     return <div className="p-5">Loading...</div>;
@@ -70,12 +71,27 @@ const Products = () => {
           <div className="m-5">Loading...</div>
         ) : (
           products?.map((product) => (
-            <div key={product.productId} className="border shadow rounded-md p-4 max-w-full w-full mx-auto">
+            <div
+              key={product.productId}
+              className="border shadow rounded-md p-4 max-w-full w-full mx-auto"
+            >
               <div className="flex flex-col items-center">
-                img
-                <h3 className="font-semibold text-gray-900 text-lg">{product.name}</h3>
+                <Image
+                  src={`https://s3-inventory-2024.s3.amazonaws.com/product${
+                    Math.floor(Math.random() * 3) + 1
+                  }.png`}
+                  alt={product.name}
+                  width={150}
+                  height={150}
+                  className="mb-3 w-36 h-36 rounded-2xl"
+                />
+                <h3 className="font-semibold text-gray-900 text-lg">
+                  {product.name}
+                </h3>
                 <p className="text-gray-800">{product.price}</p>
-                <p className="text-gray-600 mt-1 text-sm">Stock: {product.stockQuantity}</p>
+                <p className="text-gray-600 mt-1 text-sm">
+                  Stock: {product.stockQuantity}
+                </p>
                 {product.rating && (
                   <div className="flex items-center mt-1">
                     <Rating rating={product.rating} />
@@ -88,9 +104,11 @@ const Products = () => {
       </div>
 
       {/* MODAL */}
-      <CreateProductModal isOpen={isModalOpen}
-  onClose={() => setIsModalOpen(false)}
-  onCreate={handleCreateProduct} />
+      <CreateProductModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onCreate={handleCreateProduct}
+      />
     </div>
   );
 };
